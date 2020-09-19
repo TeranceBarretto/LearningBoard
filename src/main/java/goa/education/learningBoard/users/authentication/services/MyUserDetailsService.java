@@ -2,6 +2,7 @@ package goa.education.learningBoard.users.authentication.services;
 
 import goa.education.learningBoard.users.authentication.dao.ProfessorDao;
 import goa.education.learningBoard.users.authentication.dao.StudentDao;
+import goa.education.learningBoard.users.authentication.dao.UserDTO;
 import goa.education.learningBoard.users.model.Professor;
 import goa.education.learningBoard.users.model.Student;
 import goa.education.learningBoard.users.model.User;
@@ -30,28 +31,30 @@ public class MyUserDetailsService implements UserDetailsService
     @Override
     public UserDetails loadUserByUsername( String username ) throws UsernameNotFoundException
     {
-        User user = studentDao.findByUsername(username);
-        if (user == null) {
-            user = professorDao.findByUsername(username);
-            if (user == null) {
+        User user = studentDao.findByUsername( username );
+        if ( user == null ) {
+            user = professorDao.findByUsername( username );
+            if ( user == null ) {
                 throw new UsernameNotFoundException( "User not found with username: " + username );
             }
         }
-        return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(),
-                new ArrayList<>());
+        return new org.springframework.security.core.userdetails.User( user.getUsername(), user.getPassword(),
+                new ArrayList<>() );
     }
 
-    public Professor save( Professor user) {
-        Professor newUser = new Professor();
-        newUser.setUsername(user.getUsername());
-        newUser.setPassword(bcryptEncoder.encode(user.getPassword()));
-        return professorDao.save( newUser );
-    }
-
-    public Student save( Student user) {
+    public Student saveStudent( UserDTO user )
+    {
         Student newUser = new Student();
-        newUser.setUsername(user.getUsername());
-        newUser.setPassword(bcryptEncoder.encode(user.getPassword()));
+        newUser.setUsername( user.getUsername() );
+        newUser.setPassword( bcryptEncoder.encode( user.getPassword() ) );
         return studentDao.save( newUser );
+    }
+
+    public Professor saveProfessor( UserDTO user )
+    {
+        Professor newUser = new Professor();
+        newUser.setUsername( user.getUsername() );
+        newUser.setPassword( bcryptEncoder.encode( user.getPassword() ) );
+        return professorDao.save( newUser );
     }
 }

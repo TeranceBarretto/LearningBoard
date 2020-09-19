@@ -1,5 +1,7 @@
 package goa.education.learningBoard.users.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -12,8 +14,16 @@ public abstract class User implements Serializable
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Long id;
 
+    @Transient
+    @JsonIgnore
     protected UserType userType;
+
+    @JsonIgnore
+    @Column(unique=true, nullable=false)
     private String username;
+
+    @JsonIgnore
+    @Column(unique=true, nullable=false)
     private String password;
 
     @Transient

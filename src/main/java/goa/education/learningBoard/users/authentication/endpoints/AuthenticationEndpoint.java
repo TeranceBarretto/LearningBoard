@@ -1,9 +1,11 @@
 package goa.education.learningBoard.users.authentication.endpoints;
 
+import goa.education.learningBoard.users.authentication.dao.UserDTO;
 import goa.education.learningBoard.users.authentication.model.AuthenticationRequest;
 import goa.education.learningBoard.users.authentication.model.AuthenticationResponse;
 import goa.education.learningBoard.users.authentication.services.MyUserDetailsService;
 import goa.education.learningBoard.users.authentication.utils.JwtUtil;
+import goa.education.learningBoard.users.model.Professor;
 import goa.education.learningBoard.users.model.Student;
 import goa.education.learningBoard.users.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,29 +38,36 @@ public class AuthenticationEndpoint
     }
 
     @RequestMapping(value = "/authenticate", method = RequestMethod.POST)
-    public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest) throws Exception {
+    public ResponseEntity< ? > createAuthenticationToken( @RequestBody AuthenticationRequest authenticationRequest ) throws Exception
+    {
 
         try {
             authenticationManager.authenticate(
-                    new UsernamePasswordAuthenticationToken(authenticationRequest.getUsername(), authenticationRequest.getPassword())
+                    new UsernamePasswordAuthenticationToken( authenticationRequest.getUsername(), authenticationRequest.getPassword() )
             );
-        }
-        catch (BadCredentialsException e) {
-            throw new Exception("Incorrect username or password", e);
+        } catch ( BadCredentialsException e ) {
+            throw new Exception( "Incorrect username or password", e );
         }
 
 
         final UserDetails userDetails = userDetailsService
-                .loadUserByUsername(authenticationRequest.getUsername());
+                .loadUserByUsername( authenticationRequest.getUsername() );
 
-        final String jwt = jwtTokenUtil.generateToken(userDetails);
+        final String jwt = jwtTokenUtil.generateToken( userDetails );
 
-        return ResponseEntity.ok(new AuthenticationResponse(jwt));
+        return ResponseEntity.ok( new AuthenticationResponse( jwt ) );
     }
 
-    @RequestMapping(value = "/registerStudent", method = RequestMethod.POST)
-    public ResponseEntity<?> saveUser(@RequestBody Student user) throws Exception {
-        return ResponseEntity.ok(userDetailsService.save(user));
+    @RequestMapping(value = "/register/student", method = RequestMethod.POST)
+    public ResponseEntity< ? > saveStudent( @RequestBody UserDTO user ) throws Exception
+    {
+        return ResponseEntity.ok( userDetailsService.saveStudent( user ) );
+    }
+
+    @RequestMapping(value = "/register/professor", method = RequestMethod.POST)
+    public ResponseEntity< ? > saveProfessor( @RequestBody UserDTO user ) throws Exception
+    {
+        return ResponseEntity.ok( userDetailsService.saveProfessor( user ) );
     }
 
 }
