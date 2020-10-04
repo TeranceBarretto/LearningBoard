@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "user")
@@ -34,6 +35,14 @@ public class User implements Serializable
 
     @JsonIgnore
     private String middleName;
+
+    @JsonIgnore
+    @ManyToMany(mappedBy = "students")
+    private List<Course> coursesTaken;
+
+    @JsonIgnore
+    @ManyToMany(mappedBy = "professors")
+    private List<Course> coursesTaught;
 
     public User() {}
 
@@ -78,5 +87,55 @@ public class User implements Serializable
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getFirstName()
+    {
+        return firstName;
+    }
+
+    public void setFirstName( String firstName )
+    {
+        this.firstName = firstName;
+    }
+
+    public String getLastName()
+    {
+        return lastName;
+    }
+
+    public void setLastName( String lastName )
+    {
+        this.lastName = lastName;
+    }
+
+    public String getMiddleName()
+    {
+        return middleName;
+    }
+
+    public void setMiddleName( String middleName )
+    {
+        this.middleName = middleName;
+    }
+
+    public List< Course > getCoursesTaken()
+    {
+        return coursesTaken;
+    }
+
+    public void setCoursesTaken( List< Course > coursesTaken )
+    {
+        this.coursesTaken = coursesTaken;
+    }
+
+    public List< Course > getCoursesTaught()
+    {
+        return coursesTaught;
+    }
+
+    public void setCoursesTaught( List< Course > coursesTaught )
+    {
+        this.coursesTaught = coursesTaught;
     }
 }

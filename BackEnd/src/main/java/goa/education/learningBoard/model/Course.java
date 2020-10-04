@@ -1,5 +1,7 @@
 package goa.education.learningBoard.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
@@ -16,6 +18,7 @@ public class Course implements Serializable
 
     protected String name;
 
+    @JsonIgnore
     @ManyToMany
     @JoinTable(
             name = "STUDENTS_COURSES",
@@ -24,6 +27,7 @@ public class Course implements Serializable
     )
     private List<User> students;
 
+    @JsonIgnore
     @ManyToMany
     @JoinTable(
             name = "PROFESSORS_COURSES",
@@ -32,9 +36,11 @@ public class Course implements Serializable
     )
     private List<User> professors;
 
-    @OneToMany(mappedBy = "course")
+    @OneToMany(cascade=CascadeType.ALL,
+            orphanRemoval = true)
     private List<Schedule> schedules;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "course")
     private List<CourseContent> courseContent;
 
@@ -43,5 +49,65 @@ public class Course implements Serializable
     public Course(String name )
     {
         this.name = name;
+    }
+
+    public List< User > getStudents()
+    {
+        return students;
+    }
+
+    public void setStudents( List< User > students )
+    {
+        this.students = students;
+    }
+
+    public Long getId()
+    {
+        return id;
+    }
+
+    public void setId( Long id )
+    {
+        this.id = id;
+    }
+
+    public String getName()
+    {
+        return name;
+    }
+
+    public void setName( String name )
+    {
+        this.name = name;
+    }
+
+    public List< User > getProfessors()
+    {
+        return professors;
+    }
+
+    public void setProfessors( List< User > professors )
+    {
+        this.professors = professors;
+    }
+
+    public List< Schedule > getSchedules()
+    {
+        return schedules;
+    }
+
+    public void setSchedules( List< Schedule > schedules )
+    {
+        this.schedules = schedules;
+    }
+
+    public List< CourseContent > getCourseContent()
+    {
+        return courseContent;
+    }
+
+    public void setCourseContent( List< CourseContent > courseContent )
+    {
+        this.courseContent = courseContent;
     }
 }

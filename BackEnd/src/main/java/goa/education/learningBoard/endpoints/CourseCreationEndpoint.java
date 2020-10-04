@@ -12,10 +12,9 @@ public class CourseCreationEndpoint
     @Autowired
     private CourseDao courseDao;
 
-    @RequestMapping(value = "/create/course/{courseName}", method = RequestMethod.POST)
-    public ResponseEntity< ? > createCourse( @PathVariable("courseName") String courseName ) throws Exception
+    @RequestMapping(value = "/create/course", method = RequestMethod.POST)
+    public ResponseEntity< ? > createCourse( @RequestBody Course course ) throws Exception
     {
-        Course newCourse = new Course( courseName );
-        return ResponseEntity.ok( courseDao.save( newCourse ) );
+        return ResponseEntity.ok( courseDao.save( course ) );
     }
 }

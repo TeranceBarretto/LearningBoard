@@ -7,6 +7,12 @@ class UserService {
   getUserProfile() {
     return axios.get(API_URL + 'user', { headers: authHeader() });
   }
+
+  getUserSchedule(userId) {
+    const url = API_URL + 'schedule/' + userId;
+    return axios.get(url, { headers: authHeader() });
+  }
+
 }
 
 export default new UserService();

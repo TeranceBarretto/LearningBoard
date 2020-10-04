@@ -5,6 +5,7 @@ import { Router, Switch, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
+import TimeTable from "./components/timeTable.component";
 import Login from "./components/login.component";
 import Profile from "./components/profile.component";
 import BoardUser from "./components/board-user.component";
@@ -91,6 +92,7 @@ class App extends Component {
           <div className="container mt-3">
             <Switch>
               <Route exact path={["/", "/login"]} component={Login} />
+              <Route exact path="/timeTable" component={TimeTable} />
               <Route exact path="/profile" component={Profile} />
               <Route path="/user" component={BoardUser} />
             </Switch>
