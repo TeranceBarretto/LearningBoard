@@ -9,9 +9,9 @@ import TimeTable from "./components/timeTable.component";
 import Login from "./components/login.component";
 import Profile from "./components/profile.component";
 import BoardUser from "./components/board-user.component";
+import LiveFeed from "./components/livefeed.component";
 
 import { logout } from "./actions/auth";
-import { clearMessage } from "./actions/message";
 
 import { history } from './helpers/history';
 
@@ -25,10 +25,6 @@ class App extends Component {
       showAdminBoard: false,
       currentUser: undefined,
     };
-
-    history.listen((location) => {
-      props.dispatch(clearMessage()); // clear message when changing location
-    });
   }
 
   componentDidMount() {
@@ -95,6 +91,7 @@ class App extends Component {
               <Route exact path="/timeTable" component={TimeTable} />
               <Route exact path="/profile" component={Profile} />
               <Route path="/user" component={BoardUser} />
+              <Route path="/coursecontent/livefeed" component={LiveFeed} />
             </Switch>
           </div>
         </div>

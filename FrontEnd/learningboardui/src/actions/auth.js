@@ -1,8 +1,7 @@
 import {
     LOGIN_SUCCESS,
     LOGIN_FAIL,
-    LOGOUT,
-    SET_MESSAGE,
+    LOGOUT
   } from "./types";
   
   import AuthService from "../services/auth.service";
@@ -27,11 +26,6 @@ import {
   
         dispatch({
           type: LOGIN_FAIL,
-        });
-  
-        dispatch({
-          type: SET_MESSAGE,
-          payload: message,
         });
   
         return Promise.reject();

@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
-import auth from "./auth";
-import message from "./message";
+import auth from "./auth"
+import course from "./course";
 
 export default combineReducers({
   auth,
-  message,
+  course
 });

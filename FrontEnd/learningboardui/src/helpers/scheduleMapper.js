@@ -1,4 +1,4 @@
-import { RRule, RRuleSet, rrulestr } from 'rrule'
+import { RRule } from 'rrule'
 
 const termStart = new Date(2020,6,1)
 const termEnd = new Date(2020,11,31)
@@ -27,20 +27,22 @@ const parseIndividualCourse = (course) => {
     });
       
     const courseName = course.name;
+    const courseId = course.id;
     var arrayLength = startTimes.length;
     for (var index = 0; index < arrayLength; index++) {
-        events.push(createEvent(courseName, startTimes[index], endTimes[index]))
+        events.push(createEvent(courseName, startTimes[index], endTimes[index], courseId))
     }
 
     return events;
 }
 
-const createEvent = (courseName, startTime, endTime) => {
+const createEvent = (courseName, startTime, endTime, courseId) => {
     return  {
         'title': courseName,
         'allDay': false,
         'start': new Date(startTime),
-        'end': new Date(endTime)
+        'end': new Date(endTime),
+        'id': courseId
       }
 }
 

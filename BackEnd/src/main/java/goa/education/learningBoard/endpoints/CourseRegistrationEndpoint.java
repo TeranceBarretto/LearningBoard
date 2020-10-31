@@ -25,7 +25,7 @@ public class CourseRegistrationEndpoint
     @Autowired
     private UserDao userDao;
 
-    @RequestMapping(value = "/register/course/{courseId}", method = RequestMethod.POST,
+    @RequestMapping(value = "/register/students/course/{courseId}", method = RequestMethod.POST,
             consumes = "application/json")
     public ResponseEntity< ? > registerStudents( @PathVariable("courseId") Long courseId,
                                               @RequestBody List<Long> studentIds ) throws Exception
@@ -34,7 +34,11 @@ public class CourseRegistrationEndpoint
                 body("REST request error, please check server logs");
         Course course = courseDao.findByCourseId(courseId);
         if( course != null ) {
-            List< User > students = new ArrayList<>();
+            List< User > students = course.getStudents();
+            if( students == null )
+            {
+                students = new ArrayList<>();
+            }
             for ( Long studentId : studentIds ) {
                 User user = userDao.findByUserId( studentId );
                 if ( user != null ) {
@@ -45,6 +49,40 @@ public class CourseRegistrationEndpoint
             }
             course.setStudents( students );
             retVal =  ResponseEntity.ok( courseDao.save( course ) );
+        }
+        return retVal;
+    }
+
+
+    @RequestMapping(value = "/register/professors/course/{courseId}", method = RequestMethod.POST,
+            consumes = "application/json")
+    public ResponseEntity< ? > registerProfessors( @PathVariable("courseId") Long courseId,
+                                                 @RequestBody List<Long> professorIds ) throws Exception
+    {
+        ResponseEntity retVal = null;
+        Course course = courseDao.findByCourseId(courseId);
+        if( course != null ) {
+            List< User > professors = course.getProfessors();
+            if( professors == null )
+            {
+                professors = new ArrayList<>();
+            }
+            for ( Long professorId : professorIds ) {
+                User user = userDao.findByUserId( professorId );
+                if ( user != null ) {
+                    professors.add( user );
+                } else {
+                    LOGGER.warn( "Could not find professor with ID {}", professorId );
+                }
+            }
+            course.setProfessors( professors );
+            retVal =  ResponseEntity.ok( courseDao.save( course ) );
+        }
+        else
+        {
+            retVal =  new ResponseEntity<>(
+                    "No Course found for the given Id",
+                    HttpStatus.BAD_REQUEST);
         }
         return retVal;
     }

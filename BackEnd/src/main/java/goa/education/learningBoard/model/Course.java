@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -41,8 +42,11 @@ public class Course implements Serializable
     private List<Schedule> schedules;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "course")
-    private List<CourseContent> courseContent;
+    @OneToOne(mappedBy = "course", cascade = CascadeType.ALL)
+    @PrimaryKeyJoinColumn
+    private CourseContent courseContent;
+
+    private Long termId;
 
     public Course() {}
 
@@ -101,12 +105,22 @@ public class Course implements Serializable
         this.schedules = schedules;
     }
 
-    public List< CourseContent > getCourseContent()
+    public Long getTermId()
+    {
+        return termId;
+    }
+
+    public void setTermId( Long termId )
+    {
+        this.termId = termId;
+    }
+
+    public CourseContent getCourseContent()
     {
         return courseContent;
     }
 
-    public void setCourseContent( List< CourseContent > courseContent )
+    public void setCourseContent( CourseContent courseContent )
     {
         this.courseContent = courseContent;
     }

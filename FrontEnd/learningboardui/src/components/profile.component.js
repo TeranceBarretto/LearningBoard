@@ -13,7 +13,7 @@ class Profile extends Component {
 
     return (
       <div className="container">
-        <img src={ require('../images/welcome.gif') } width="750" />
+        <img src={ require('../images/welcome.gif') } width="750" alt="Sagar's welcome" />
         <p>
         <strong>Type:</strong> {currentUser.userType}
         </p>
