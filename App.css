@@ -1,0 +1,243 @@
+.App {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.tab-list {  border-bottom: 1px solid #ccc;
+  padding-left: 0;
+}
+
+.tab-list-item {
+  display: inline-block;
+  list-style: none;
+  margin-bottom: -1px;
+  padding: 0.5rem 0.75rem;
+}
+
+.tab-list-active {
+  background-color: white;
+  border: solid #ccc;
+  border-width: 1px 1px 0 1px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+/* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Lato', sans-serif;
+}*/
+
+
+html, body, #root, .App {
+  height: 100%;
+  margin-top: 0;
+  margin-bottom:0;
+  /*added after login */
+}
+
+/* added after login*/
+
+* {
+   padding: 0;
+   margin: 0;
+  }
+
+/*.App {
+
+  /*margin-top: 0;*/
+  /*text-align: center;*/
+  /*background-color:#00802b;*/
+
+.lg5{
+margin-top:25%;
+margin-bottom:25%;
+margin-right:25%;
+margin-left:25%;
+float:right;
+text-align:center;
+width:50%;
+background-color: white;
+border: 2px solid #376558;
+padding: 10px;
+border-radius: 25px;
+}
+
+
+.lg9{
+/*background-color:#00802b ;*/
+background-color:#376558;
+width:65%;
+float:right;
+}
+
+.logofont{
+font-family: "Gill Sans MT";
+}
+
+.lg6{
+float:left;
+width:35%;
+text-align :center;
+margin-top:8%;
+}
+
+button{
+ background-color:#376558 !important;
+ font: 50 13.333px Arial !important;
+}
+
+.MuiSvgIcon-root
+{
+transform: scale(2);
+}
+
+.top-bar
+{
+padding: 10px 0 !important;
+margin-bottom: 5px !important;
+border-bottom: 2px solid #376558;
+display: flex;
+justify-content: space-between;
+background-color: #376558;
+}
+
+.tab-bar
+{
+display: flex;
+}
+
+.tab-details
+{
+flex: 3;
+}
+
+.tab-tab-details
+{
+display:flex;
+}
+
+.header-text
+{
+font-family: "Gill Sans MT";
+color: white;
+font-size:15px !important;
+width:'50%' !important;
+}
+
+.search-bar
+{
+padding-left:50%;
+}
+
+.user-profile-icon
+{
+padding:25px;
+}
+
+.video-link-notes
+{
+width:75%;
+float:left;
+padding-right:4%;
+}
+
+.class-notes-video
+{
+float:left;
+}
+
+.class-notes-header
+{
+background-color: #376558;
+border: 2px solid #376558;
+width:130%;
+font-family: "Gill Sans MT";
+color: white;
+font-size:25px;
+text-align:center;
+border-radius: 13px;
+border-style: inset;
+}
+
+.display-notes-video
+{
+border: 2px solid #376558;
+border-style: solid;
+width:130%;
+margin-top:15px;
+height:600px;
+border-radius: 13px;
+border-style: inset;
+}
+
+.video-notes-header
+{
+background-color: #376558;
+border: 2px solid #376558;
+width:100%;
+font-family: "Gill Sans MT";
+color: white;
+font-size:25px;
+text-align:center;
+border-radius: 13px;
+border-style: inset;
+}
+
+.video-notes-display
+{
+border: 2px solid #376558;
+border-style: solid;
+width:100%;
+margin-top:15px;
+border-radius: 13px;
+border-style: inset;
+}
+
+.MuiBox-root-7 {
+  padding: 5px !important;
+}
+.MuiBox-root-9 {
+  padding: 5px !important;
+}
+.nav-menu {
+ position: absolute !important;
+
+}
+.MuiTab-root {
+    min-width: 0px !important;
+    }
+.MuiPaper-root {
+  min-width: 0px !important;
+}
+
+.MuiTab-root {
+font-family: "Gill Sans MT";
+color: white;
+font-size:15px !important;
+width:'50%' !important;
+text-transform: unset !important;
+}
+.MuiBox-root-11 {
+  padding: 5px !important;
+}
+.MuiBox-root-13 {
+  padding: 5px !important;
+}
+.makeStyles-root-10 {
+  padding: 0 0px !important;
+}
+button {
+  color: black !important;
+}
+element.style {
+  background: none !important;
+}
+.MuiButtonBase-root {
+  border: revert !important;
+}
+.MuiTabs-root {
+  background: rgba(233, 228, 228, 0.87) !important;
+}
