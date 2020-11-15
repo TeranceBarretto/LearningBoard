@@ -17,6 +17,8 @@ If not refer: https://gradle.org/install/
 If not refer: https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html
 3) npm and NodeJS is pre-installed
 if not refer: https://nodejs.org/en/
+4) Install MySQL with username and password both set to ‘root’
+refernce: https://dev.mysql.com/downloads/installer/
 
 Note: 
-bootRun will stop at 75% with the last step as "Started LearaningBoardApplication" 
+1) bootRun will stop at 75% with the last step as "Started LearaningBoardApplication" 
