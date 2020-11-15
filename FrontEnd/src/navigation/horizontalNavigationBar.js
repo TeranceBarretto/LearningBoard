@@ -14,7 +14,7 @@ import TrendingUp from '@material-ui/icons/TrendingUp';
 import CourseFolder from "../components/courseFolder.component";
 import CourseHomework from "../components/courseHomework.component";
 import LiveFeed from "../components/livefeed.component";
-
+import '../css/horizontalNavigationBar.css'
 import { connect } from "react-redux";
 
 function TabPanel(props) {
@@ -50,17 +50,7 @@ function a11yProps(index) {
   };
 }
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    backgroundColor: theme.palette.background.paper,
-    width: '100%',
-    height:'100%',
-    margin: '0 auto',
-  },
-}));
-
 export function HorizontalNavigationPanel() {
-  const classes = useStyles();
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
 
@@ -69,7 +59,7 @@ export function HorizontalNavigationPanel() {
   };
 
   return (
-    <div className={classes.root}>
+    <div className='horizontalNavigationBar'>
       <AppBar position="static" color="default">
         <Tabs
           value={value}

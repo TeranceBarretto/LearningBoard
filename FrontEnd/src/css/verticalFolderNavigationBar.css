@@ -1,20 +1,45 @@
+.verticalFolderNavigationBar
+{
+    display: flex;
+    height: 450px;
+    flex-direction: row; 
+    width: 1750px !important; 
+}
+
+.verticalFolderNavigationBar .tab-panel 
+{  
+  height: 0;
+}
+
+.verticalFolderNavigationBar .MuiTab-root {
+  height: 50.5px !important;
+  padding: 10px !important;
+  min-width: 0px !important;
+}
+
+.verticalFolderNavigationBar .MuiBox-root 
+{
+  padding: 50px !important;
+}
+
+.verticalFolderNavigationBar button
+{
+  background-color:#376558 !important;
+}
+
+
 .video-notes-display-folders
 {
     border: 2px solid #376558;
-    border-style: solid;
-    width:100%;
-    margin-top:15px;
+    width: 1150px;
     border-radius: 13px;
     border-style: inset;
+    height: 400px;
+    overflow-y: auto;
 }
 
 .top-bar-folders
 {
-    padding: 10px 0 !important;
-    margin-bottom: 5px !important;
-    border-bottom: 2px solid #376558;
-    display: flex;
-    justify-content: space-between;
     background-color: #376558;
 }
 
@@ -24,6 +49,9 @@
     color: white;
     font-size:15px !important;
     width:'100%' !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .MuiTab-root 

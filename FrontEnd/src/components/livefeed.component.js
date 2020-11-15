@@ -31,27 +31,12 @@ class LiveFeed extends Component {
 
     return (
       <div>
-      <div class= 'video-link-notes'>
-        <div class='video-link'>
-          <iframe width='100%' height='500px' class = 'zoom-link' scrolling="no" src="https://northeastern.zoom.us/j/8689484373?pwd=b2tuV1g4dXRJeGpoa0pkOURudDFFUT09"  allow="microphone; camera; fullscreen">
-          </iframe>
-       </div>
-
-        <div class='video-notes-header'>
-          Video Description / Pop up questions
+        <div class= 'video-link-notes'>
+          <div class='video-link'>
+            <iframe width='100%' height='500px' class = 'zoom-link' scrolling="no" src="https://northeastern.zoom.us/j/8689484373?pwd=b2tuV1g4dXRJeGpoa0pkOURudDFFUT09"  allow="microphone; camera; fullscreen">
+            </iframe>
+          </div>
         </div>
-        <div class='video-notes-display'>
-            Video Description
-        </div>
-      </div>
-      <div class = 'class-notes-video'>
-         <div class='class-notes-header'>
-           Class Notes/Attachments
-         </div>
-         <div class='display-notes-video'>
-            Lecture Notes
-         </div>
-      </div>
       </div>
     );
   }
