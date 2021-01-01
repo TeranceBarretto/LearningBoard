@@ -1,0 +1,30 @@
+.verticalNavigationBar {
+  height: 100% !important;
+  padding: 0 10px !important;
+}
+
+.verticalNavigationBar .tab-panel 
+{  
+  height: 0;
+}
+
+.verticalNavigationBar .MuiTab-root {
+  height: 71.5px !important;
+  padding: 10px !important;
+  min-width: 0px !important;
+}
+
+.verticalNavigationBar .MuiBox-root 
+{
+  padding: 10px !important;
+}
+
+button
+{
+  background-color:#376558 !important;
+}
+
+#full-width-tabpanel-0, #full-width-tabpanel-1, #full-width-tabpanel-2, #full-width-tabpanel-3
+{
+  height: 0;
+}

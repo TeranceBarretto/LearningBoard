@@ -1,0 +1,31 @@
+.horizontalNavigationBar {
+  width: '100%';
+  height:'100%';
+  margin: '0 auto';
+}
+
+.horizontalNavigationBar .tab-panel 
+{  
+  height: 0;
+}
+
+.horizontalNavigationBar .MuiTab-root {
+  height: 71.5px !important;
+  padding: 10px !important;
+  min-width: 0px !important;
+}
+
+.horizontalNavigationBar .MuiBox-root 
+{
+  padding: 10px !important;
+}
+
+.horizontalNavigationBar button
+{
+  background-color:#376558 !important;
+}
+
+#full-width-tabpanel-0, #full-width-tabpanel-1, #full-width-tabpanel-2, #full-width-tabpanel-3
+{
+  height: 0;
+}

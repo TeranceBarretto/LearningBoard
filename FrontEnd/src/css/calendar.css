@@ -1,0 +1,37 @@
+.rbc-event {
+    background-color: #376558 !important; 
+  }
+  
+  .rbc-today { 
+    background-color: #99cc00 !important;
+  }
+  
+  .rbc-header {
+    font-size: 110% !important;
+    border-bottom: 0px solid #DDD !important; 
+  }
+  
+  .rbc-event-label {
+    font-size: 0% !important;
+  }
+  
+  .rbc-toolbar button:active, .rbc-toolbar button.rbc-active {
+    background-color: #99cc00 !important;
+  }
+  
+  .rbc-timeslot-group {
+    border-bottom: 0px solid !important;
+  }
+  
+  .rbc-time-slot {
+    flex: 0 0 !important;
+  }
+      
+  .rbc-timeslot-group {
+    min-height: 30px !important;
+  }
+  
+  .rbc-calendar {
+    width: 1270px;
+    height: 84vh;
+  }
